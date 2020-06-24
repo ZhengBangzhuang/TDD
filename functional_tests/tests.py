@@ -11,11 +11,12 @@ class NewVisitorTest(StaticLiveServerTestCase):
     #39.97.117.89
     def setUp(self):
         self.browser = webdriver.Firefox()
-        staging_server = os.environ.get('STAGING_SERVER')
-        if staging_server:
-            self.live_server_url = 'http://' + staging_server
+        # staging_server = os.environ.get('STAGING_SERVER')
+        # if staging_server:
+        self.live_server_url = 'http://120.79.41.248'
     
     def tearDown(self):
+        self.browser.refresh()
         self.browser.quit()
         
     def wait_for_row_in_list_table(self, row_text):
